@@ -55,16 +55,9 @@
             </form>
 
             <fmt:message key="label.delete" var="delete"/>
-            <button onclick="deleteFunction()">${delete}</button>
-
-            <script type="text/javascript">
-                function deleteFunction() {
-                    if (window.confirm("${delete}?")) {
-                        window.location.replace("${pageContext.request.contextPath}/controller?command=deleteVacancy");
-                    }
-
-                }
-            </script>
+            <c:set var="deleteCommand" value="${pageContext.request.contextPath}/controller?command=deleteVacancy"/>
+            <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/script.js"></script>
+            <button onclick="confirmFunction('${delete}?','${deleteCommand}')">${delete}</button>
         </c:if>
     </div>
 </main>
